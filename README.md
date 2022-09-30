@@ -1,4 +1,4 @@
-# EMCode
+# EMCore
 
 This is just a custom build of GNU Emacs with some plugins. It's meant for NixOS, and I'm not entirely sure if it'll work anywhere else.
 
