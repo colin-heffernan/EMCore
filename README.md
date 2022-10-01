@@ -7,24 +7,24 @@ This is just a custom build of GNU Emacs with some plugins. It's meant for NixOS
 
 ## NixOS
 
-Installing on NixOS is easy. Add EMCode to your Flake inputs, add the overlay to your Nixpkgs overlays, and install the package.
+Installing on NixOS is easy. Add EMCore to your Flake inputs, add the overlay to your Nixpkgs overlays, and install the package.
 `flake.nix`
 ```nix
 {
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-		emcode = {
-			url = "github:colin-heffernan/EMCode";
+		emcore = {
+			url = "github:colin-heffernan/EMCore";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 	};
-	outputs = { self, nixpkgs, emcode, ... } @ inputs:
+	outputs = { self, nixpkgs, emcore, ... } @ inputs:
 		let
 			system = "x84_64-linux";
 			pkgs = import nixpkgs {
 				inherit system;
 				overlays = [
-					emcode.overlays.default
+					emcore.overlays.default
 				];
 			};
 		in {
@@ -45,7 +45,7 @@ Installing on NixOS is easy. Add EMCode to your Flake inputs, add the overlay to
 
 {
 	environment.systemPackages = with pkgs; [
-		emcode
+		emcore
 	];
 }
 ```
@@ -53,4 +53,4 @@ Installing on NixOS is easy. Add EMCode to your Flake inputs, add the overlay to
 
 # License
 
-EMCode is licensed under the MIT License.
+EMCore is licensed under the MIT License.

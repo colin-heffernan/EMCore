@@ -1,5 +1,5 @@
 {
-	description = "EMCode Flake";
+	description = "EMCore Flake";
 
 	inputs = {
 		##### General Inputs
@@ -40,12 +40,12 @@
 
 			overlays.default = final: prev: rec {
 				inherit emacsBuilder;
-				emcode = packages.${system}.emcode;
+				emcore = packages.${system}.emcore;
 			};
 
 			packages.${system} = rec {
-				default = emcode;
-				emcode = emacsBuilder;
+				default = emcore;
+				emcore = emacsBuilder;
 			};
 		};
 }
